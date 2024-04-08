@@ -13,10 +13,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMvc(options =>
+{
+    options.SuppressAsyncSuffixInActionNames = false;
+}
+);
+
 builder.Services.AddScoped<IRepositorioDapper, RepositorioDapper>();
 
 builder.Services.AddScoped<IProveedorDA, ProveedorDA>();
 builder.Services.AddScoped<IProveedorBW, ProveedorBW>();
+
+
+builder.Services.AddScoped<IProductoDA, ProductoDA>();
+builder.Services.AddScoped<IProductoBW, ProductoBW>();
 
 var app = builder.Build();
 
