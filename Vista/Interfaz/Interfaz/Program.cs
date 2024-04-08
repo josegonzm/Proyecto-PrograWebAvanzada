@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Interfaz.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<InterfazContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("InterfazContext") ?? throw new InvalidOperationException("Connection string 'InterfazContext' not found.")));
 
 var app = builder.Build();
 
