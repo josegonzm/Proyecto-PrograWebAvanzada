@@ -28,6 +28,13 @@ builder.Services.AddScoped<IProveedorBW, ProveedorBW>();
 builder.Services.AddScoped<IProductoDA, ProductoDA>();
 builder.Services.AddScoped<IProductoBW, ProductoBW>();
 
+builder.Services.AddScoped<IUsuarioDA, UsuarioDA>();
+builder.Services.AddScoped<IUsuarioBW, UsuarioBW>();
+
+builder.Services.AddScoped<ICategoriaDA, CategoriaDA>();
+builder.Services.AddScoped<ICategoriaBW, CategoriaBW>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

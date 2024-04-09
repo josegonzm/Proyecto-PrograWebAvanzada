@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Abstracciones.Entities
 {
-    public class Categoria
+    public class Rol
     {
-        public Guid Id { get; set; }   
+        public Guid Id { get; set; }
 
         public string Nombre { get; set; }
-
-        public string Descripcion { get; set; }
-
-        public string Imagen { get; set; }
     }
-
 }
