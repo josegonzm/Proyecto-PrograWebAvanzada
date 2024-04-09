@@ -17,5 +17,9 @@ namespace Interfaz.Data
         public DbSet<Abstracciones.Modelos.Proveedor> Proveedor { get; set; } = default!;
 
         public DbSet<Abstracciones.Modelos.Producto> Producto { get; set; } = default!;
+
+        public DbSet<Abstracciones.Modelos.Categoria> Categoria { get; set; } = default!;
+
+        public DbSet<Abstracciones.Modelos.Usuario> Usuario { get; set; } = default!;
     }
 }

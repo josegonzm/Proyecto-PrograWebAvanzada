@@ -2,8 +2,6 @@
 using Abstracciones.BW;
 using Abstracciones.Modelos;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc;
-
 namespace API.Controllers
 {
     [ApiController]
