@@ -4,22 +4,21 @@
 @{
     ViewData["Title"] = "Categorias";
 }
+<h1 class="text-3xl font-bold m-3">Categorias</h1>
 
-<h1>Categorias</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
+<p class="inline-block m-3 bg-blue-500  text-white font-bold py-2 px-4 rounded ">
+    <a asp-page="Create">Agregar una nueva Categoria</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
+        <tr class="bg-gray-200 text-gray-700">
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Categoria[0].Nombre)
-            </th>
-            <th>
+            </th  class="px-4 py-2">
+            <th  class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Categoria[0].Descripcion)
             </th>
-            <th>
+            <th  class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Categoria[0].Imagen)
             </th>
             <th></th>
@@ -28,19 +27,19 @@
     <tbody>
 @foreach (var item in Model.Categoria) {
         <tr>
-            <td>
+            <td class="border px-4 py-2">
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
-            <td>
+            <td class="border px-4 py-2">
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Imagen)
-            </td>
+            </td class="border px-4 py-2">
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="text-indigo-600 hover:text-indigo-900 mr-2" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a  class="text-green-600 hover:text-green-900 mr-2" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="text-red-600 hover:text-red-900" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

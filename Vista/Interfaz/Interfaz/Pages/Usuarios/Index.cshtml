@@ -5,62 +5,64 @@
     ViewData["Title"] = "Usuarios";
 }
 
-<h1>Usuarios</h1>
+<h1 class="text-3xl font-bold m-3">Usuarios</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
+<p class="inline-block m-3 bg-blue-500 text-white font-bold py-2 px-4 rounded">
+    <a asp-page="Create" class="text-white">Crear nuevo usuario</a>
 </p>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>
+    <thead >
+        <tr class="bg-gray-200 text-gray-700 ">
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Nombre)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Primer_Apellido)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Segundo_Apellido)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Correo)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Telefono)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Id_Rol)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Usuario) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Primer_Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Segundo_Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Rol)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Usuario)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Primer_Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Segundo_Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_Rol)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

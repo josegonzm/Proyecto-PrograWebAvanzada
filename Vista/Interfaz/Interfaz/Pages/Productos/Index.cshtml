@@ -5,72 +5,42 @@
     ViewData["Title"] = "Productos";
 }
 
-<h1>Productos</h1>
+<h1 class="text-3xl font-bold m-3">Productos</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
+<p class="inline-block m-3 bg-blue-500  text-white font-bold py-2 px-4 rounded ">
+    <a asp-page="Create">Agregar nuevo Producto</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Marca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Imagen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Id_Categoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto[0].Id_Proveedor)
-            </th>
-            <th></th>
+        <tr class="bg-gray-200 text-gray-700 ">
+            <th class="px-4 py-2">Nombre</th>
+            <th class="px-4 py-2">Descripción</th>
+            <th class="px-4 py-2">Marca</th>
+            <th class="px-4 py-2">Precio</th>
+            <th class="px-4 py-2">Estado</th>
+            <th class="px-4 py-2">Imagen</th>
+            <th class="px-4 py-2">Categoría</th>
+            <th class="px-4 py-2">Proveedor</th>
+            <th class="px-4 py-2">Acciones</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Producto) {
         <tr>
+                <td class="border px-4 py-2">@item.Nombre</td>
+                <td class="border px-4 py-2">@item.Descripcion</td>
+                <td class="border px-4 py-2">@item.Marca</td>
+                <td class="border px-4 py-2">@item.Precio</td>
+                <td class="border px-4 py-2">@item.Estado</td>
+                <td class="border px-4 py-2"><img src="@item.Imagen" alt="Imagen" class="w-16 h-16 object-cover rounded"></td>
+                <td class="border px-4 py-2">@item.Id_Categoria</td>
+                <td class="border px-4 py-2">@item.Id_Proveedor</td>
+                
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Proveedor)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="text-indigo-600 hover:text-indigo-900 mr-2" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="text-green-600 hover:text-green-900 mr-2" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="text-red-600 hover:text-red-900" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+
             </td>
         </tr>
 }

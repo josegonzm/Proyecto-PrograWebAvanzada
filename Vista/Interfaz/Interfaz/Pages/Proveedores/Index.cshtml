@@ -5,24 +5,24 @@
     ViewData["Title"] = "Proveedores";
 }
 
-<h1>Proveedores</h1>
+<h1 class="text-3xl font-bold m-3">Proveedores</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
+<p class="inline-block m-3 bg-blue-500  text-white font-bold py-2 px-4 rounded ">
+    <a asp-page="Create">Agregar Proveedor</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
+        <tr class="bg-gray-200 text-gray-700 ">
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Proveedor[0].Nombre)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Proveedor[0].Contacto)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Proveedor[0].Pais)
             </th>
-            <th>
+            <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Proveedor[0].Notas_Adicionales)
             </th>
             <th></th>
@@ -31,22 +31,22 @@
     <tbody>
 @foreach (var item in Model.Proveedor) {
         <tr>
-            <td>
+                <td class="border px-4 py-2">
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
-            <td>
+                <td class="border px-4 py-2">
                 @Html.DisplayFor(modelItem => item.Contacto)
             </td>
-            <td>
+                <td class="border px-4 py-2">
                 @Html.DisplayFor(modelItem => item.Pais)
             </td>
-            <td>
+                <td class="border px-4 py-2">
                 @Html.DisplayFor(modelItem => item.Notas_Adicionales)
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <td class="border px-4 py-2">
+                    <a class="text-indigo-600 hover:text-indigo-900 mr-2" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="text-green-600 hover:text-green-900 mr-2" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="text-red-600 hover:text-red-900" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
