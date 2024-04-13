@@ -24,7 +24,15 @@ namespace DA
         public async Task<Guid> AgregarUsuario(Usuario usuario)
         {
             string sql = @"[AgregarUsuario]";
-            var Consulta = await _sqlConnection.ExecuteScalarAsync(sql, new { Nombre = usuario.Nombre, Primer_Apellido = usuario.Primer_Apellido, Segundo_Apellido = usuario.Segundo_Apellido, Correo = usuario.Correo, Telefono = usuario.Telefono, Id_Rol = usuario.Id_Rol});
+            var Consulta = await _sqlConnection.ExecuteScalarAsync(sql, 
+                new { Nombre = usuario.Nombre, 
+                    Primer_Apellido = usuario.Primer_Apellido, 
+                    Segundo_Apellido = usuario.Segundo_Apellido, 
+                    Correo = usuario.Correo, 
+                    Telefono = usuario.Telefono, 
+                    ContrasenaHash = usuario.ContrasenaHash, 
+                    Id_Rol = usuario.Id_Rol});
+
             return (Guid)Consulta;
         }
         public async Task<Guid> EliminarUsuario(Guid id)
@@ -36,7 +44,14 @@ namespace DA
         public async Task<Guid> ModificarUsuario(Guid id, Abstracciones.Modelos.Usuario usuario)
         {
             string sql = @"[ModificarUsuario]";
-            var Consulta = await _sqlConnection.ExecuteAsync(sql, new { Id = id, Nombre = usuario.Nombre, Primer_Apellido = usuario.Primer_Apellido, Segundo_Apellido = usuario.Segundo_Apellido, Correo = usuario.Correo, Telefono = usuario.Telefono, Id_Rol = usuario.Id_Rol });
+            var Consulta = await _sqlConnection.ExecuteAsync(sql, new { Id = id, 
+                Nombre = usuario.Nombre, 
+                Primer_Apellido = usuario.Primer_Apellido, 
+                Segundo_Apellido = usuario.Segundo_Apellido, 
+                Correo = usuario.Correo, 
+                Telefono = usuario.Telefono,
+                ContrasenaHash = usuario.ContrasenaHash,
+                Id_Rol = usuario.Id_Rol });
             return id;
         }
         public async Task<Abstracciones.Modelos.Usuario> ObtenerUsuarioPorId(Guid id)

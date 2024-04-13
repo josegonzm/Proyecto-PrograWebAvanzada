@@ -34,6 +34,9 @@ namespace Abstracciones.Modelos
         public string Telefono { get; set; }
 
         [Required]
+        public string ContrasenaHash { get; set; }
+
+        [Required]
 
         public Guid Id_Rol {  get; set; }
     }

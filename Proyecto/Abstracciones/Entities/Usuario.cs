@@ -27,7 +27,8 @@ namespace Abstracciones.Entities
         
         public string Telefono { get; set; }
 
-     
+        public string ContrasenaHash { get; set; }
+
 
         public Guid Id_Rol { get; set; }
     }
