@@ -52,7 +52,7 @@ namespace API.Controllers
             try
             {
                 _logger.LogInformation("Eliminando persona");
-                return Ok(await _proveedorBW.EliminarProveedor(id));
+                return NotFound(await _proveedorBW.EliminarProveedor(id));
             }
             catch (Exception ex)
             {
@@ -83,6 +83,10 @@ namespace API.Controllers
             try
             {
                 _logger.LogInformation("Editando persona");
+                //var validacion = await _proveedorBW.ObtenerProveedorPorId(id);
+                //if ( validacion == null)
+                //    return NotFound();
+
                 return Ok(await _proveedorBW.ModificarProveedor(id, proveedor));
             }
             catch (Exception ex)

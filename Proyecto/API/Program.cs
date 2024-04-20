@@ -34,6 +34,9 @@ builder.Services.AddScoped<IUsuarioBW, UsuarioBW>();
 builder.Services.AddScoped<ICategoriaDA, CategoriaDA>();
 builder.Services.AddScoped<ICategoriaBW, CategoriaBW>();
 
+builder.Services.AddScoped<ICarritoCompraDA, CarritoCompraDA>();
+builder.Services.AddScoped<ICarritoCompraBW, CarritoCompraBW>();
+
 
 var app = builder.Build();
 
