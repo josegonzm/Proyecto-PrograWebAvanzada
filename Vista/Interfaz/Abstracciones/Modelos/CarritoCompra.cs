@@ -16,10 +16,10 @@ namespace Abstracciones.Modelos
         public Guid Id_Usuario { get; set; }
         [Required]
         public Guid Id_Producto { get; set; }
-        public string NombreProducto { get; set; }
-        public string ImagenProducto { get; set; }
-        public string DescripcionProducto { get; set; }
-        public string PrecioProducto { get; set; }
+        public string? NombreProducto { get; set; }
+        public string? ImagenProducto { get; set; }
+        public string? DescripcionProducto { get; set; }
+        public string? PrecioProducto { get; set; }
 
         [Required]
         [ValidarCantidad]

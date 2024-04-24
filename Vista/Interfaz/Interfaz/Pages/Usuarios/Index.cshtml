@@ -15,22 +15,13 @@
     <thead >
         <tr class="bg-gray-200 text-gray-700 ">
             <th class="px-4 py-2">
-                @Html.DisplayNameFor(model => model.Usuario[0].Nombre)
+                @Html.DisplayNameFor(model => model.Usuario[0].NombreUsuario)
             </th>
             <th class="px-4 py-2">
-                @Html.DisplayNameFor(model => model.Usuario[0].Primer_Apellido)
-            </th>
-            <th class="px-4 py-2">
-                @Html.DisplayNameFor(model => model.Usuario[0].Segundo_Apellido)
+                @Html.DisplayNameFor(model => model.Usuario[0].PasswordHash)
             </th>
             <th class="px-4 py-2">
                 @Html.DisplayNameFor(model => model.Usuario[0].Correo)
-            </th>
-            <th class="px-4 py-2">
-                @Html.DisplayNameFor(model => model.Usuario[0].Telefono)
-            </th>
-            <th class="px-4 py-2">
-                @Html.DisplayNameFor(model => model.Usuario[0].Id_Rol)
             </th>
             <th></th>
         </tr>
@@ -40,22 +31,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
+                    @Html.DisplayFor(modelItem => item.NombreUsuario)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Primer_Apellido)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Segundo_Apellido)
+                    @Html.DisplayFor(modelItem => item.PasswordHash)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Correo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id_Rol)
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

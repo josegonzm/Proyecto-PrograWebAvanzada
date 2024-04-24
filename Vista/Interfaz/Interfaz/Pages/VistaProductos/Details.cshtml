@@ -60,13 +60,15 @@
         </div>
     </div>
     <div class="mt-8">
-        <button id="btnAgregarCarrito" class="btn btn-primary">Agregar al carrito</button>
+        <a asp-page="./CarritosCompra/Index" id="btnAgregarCarrito" class="btn btn-primary">Agregar al carrito</a>
+        <a asp-page="./CarritosCompra/Index">Prueba</a>
+
         <a href="./Edit?id=@Model.Producto.Id" class="btn btn-primary">Editar</a>
         <a href="./Index" class="btn btn-secondary">Volver al listado</a>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#btnAgregarCarrito').click(function () {
@@ -87,4 +89,4 @@
             });
         });
     });
-</script>
+</script> *@

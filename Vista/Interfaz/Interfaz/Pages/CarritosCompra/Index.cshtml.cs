@@ -18,7 +18,7 @@ namespace Interfaz.Pages.CarritosCompra
 
         public async Task OnGetAsync()
         {
-            string endpoint = "https://localhost:7093/API/TodosCarritos";
+            string endpoint = "https://localhost:7093/API/CarritoCompra/TodosCarritos";
             var cliente = new HttpClient();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, endpoint);
             var respuesta = await cliente.SendAsync(solicitud);

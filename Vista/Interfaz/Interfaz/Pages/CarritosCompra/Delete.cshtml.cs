@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Abstracciones.Modelos;
 using Interfaz.Data;
+using Newtonsoft.Json;
 
 namespace Interfaz.Pages.CarritosCompra
 {
@@ -29,7 +30,13 @@ namespace Interfaz.Pages.CarritosCompra
                 return NotFound();
             }
 
-            var carritocompra = await _context.CarritoCompra.FirstOrDefaultAsync(m => m.Id == id);
+            string endpoint = "https://localhost:7093/API/CarritoCompra/{0}";
+            var cliente = new HttpClient();
+            var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, id));
+            var respuesta = await cliente.SendAsync(solicitud);
+            respuesta.EnsureSuccessStatusCode();
+            var resultado = await respuesta.Content.ReadAsStringAsync();
+            var carritocompra = JsonConvert.DeserializeObject<CarritoCompra>(resultado);
 
             if (carritocompra == null)
             {
@@ -44,18 +51,15 @@ namespace Interfaz.Pages.CarritosCompra
 
         public async Task<IActionResult> OnPostAsync(Guid? id)
         {
-            if (id == null || _context.CarritoCompra == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var carritocompra = await _context.CarritoCompra.FindAsync(id);
-
-            if (carritocompra != null)
-            {
-                CarritoCompra = carritocompra;
-                _context.CarritoCompra.Remove(CarritoCompra);
-                await _context.SaveChangesAsync();
-            }
+            string endpoint = "https://localhost:7093/API/CarritoCompra/{0}";
+            var cliente = new HttpClient();
+            var solicitud = new HttpRequestMessage(HttpMethod.Delete, string.Format(endpoint, id));
+            var respuesta = await cliente.SendAsync(solicitud);
+            respuesta.EnsureSuccessStatusCode();
 
             return RedirectToPage("./Index");
         }

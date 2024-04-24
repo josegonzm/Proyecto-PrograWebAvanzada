@@ -12,34 +12,19 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Usuario.Nombre" class="control-label"></label>
-                <input asp-for="Usuario.Nombre" class="form-control" />
-                <span asp-validation-for="Usuario.Nombre" class="text-danger"></span>
+                <label asp-for="Usuario.NombreUsuario" class="control-label"></label>
+                <input asp-for="Usuario.NombreUsuario" class="form-control" />
+                <span asp-validation-for="Usuario.NombreUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Usuario.Primer_Apellido" class="control-label"></label>
-                <input asp-for="Usuario.Primer_Apellido" class="form-control" />
-                <span asp-validation-for="Usuario.Primer_Apellido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Usuario.Segundo_Apellido" class="control-label"></label>
-                <input asp-for="Usuario.Segundo_Apellido" class="form-control" />
-                <span asp-validation-for="Usuario.Segundo_Apellido" class="text-danger"></span>
+                <label asp-for="Usuario.PasswordHash" class="control-label"></label>
+                <input asp-for="Usuario.PasswordHash" class="form-control" />
+                <span asp-validation-for="Usuario.PasswordHash" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Usuario.Correo" class="control-label"></label>
                 <input asp-for="Usuario.Correo" class="form-control" />
                 <span asp-validation-for="Usuario.Correo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Usuario.Telefono" class="control-label"></label>
-                <input asp-for="Usuario.Telefono" class="form-control" />
-                <span asp-validation-for="Usuario.Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Usuario.Id_Rol" class="control-label"></label>
-                <input asp-for="Usuario.Id_Rol" class="form-control" />
-                <span asp-validation-for="Usuario.Id_Rol" class="text-danger"></span>
             </div>
             <div class="form-group mt-2">
                 <input type="submit" value="Crear" class="btn btn-primary" />
