@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autorizacion.Abstracciones" Version="1.0.0-CI-20240328-014049" />
-    <PackageReference Include="Autorizacion.BW" Version="1.0.0-CI-20240328-014042" />
-    <PackageReference Include="Autorizacion.DA" Version="1.0.0-CI-20240328-014045" />
-    <PackageReference Include="Autorizacion.Helpers" Version="1.0.0-CI-20240328-014052" />
-    <PackageReference Include="AutorizacionHandler" Version="1.0.0-CI-20240324-232514" />
-    <PackageReference Include="AutorizacionMiddleware" Version="1.0.0-CI-20240328-014037" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
