@@ -7,12 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Abstracciones.Modelos;
 using Interfaz.Data;
-using System.Net.Http.Json;
 
-namespace Interfaz.Pages.CarritosCompra
+namespace Interfaz.Pages.Venta
 {
     public class CreateModel : PageModel
     {
+        private readonly Interfaz.Data.InterfazContext _context;
+
+        public CreateModel(Interfaz.Data.InterfazContext context)
+        {
+            _context = context;
+        }
 
         public IActionResult OnGet()
         {
@@ -20,16 +25,19 @@ namespace Interfaz.Pages.CarritosCompra
         }
 
         [BindProperty]
-        public CarritoCompra CarritoCompra { get; set; } = default!;
+        public Ventas Ventas { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            string endpoint = "https://localhost:7093/API/CarritoCompra";
-            var cliente = new HttpClient();
-            var respuesta = await cliente.PostAsJsonAsync<CarritoCompra>(endpoint, CarritoCompra);
-            respuesta.EnsureSuccessStatusCode();
+          if (!ModelState.IsValid || _context.Ventas == null || Ventas == null)
+            {
+                return Page();
+            }
+
+            _context.Ventas.Add(Ventas);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

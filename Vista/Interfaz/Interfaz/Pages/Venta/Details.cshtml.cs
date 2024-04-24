@@ -9,12 +9,12 @@ using Abstracciones.Modelos;
 using Interfaz.Data;
 using Newtonsoft.Json;
 
-namespace Interfaz.Pages.CarritosCompra
+namespace Interfaz.Pages.Venta
 {
     public class DetailsModel : PageModel
     {
 
-      public CarritoCompra CarritoCompra { get; set; } = default!; 
+      public Ventas Ventas { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -23,20 +23,20 @@ namespace Interfaz.Pages.CarritosCompra
                 return NotFound();
             }
 
-            string endpoint = "https://localhost:7093/API/CarritoCompra/{0}";
+            string endpoint = "https://localhost:7093/API/Ventas/{0}";
             var cliente = new HttpClient();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, id));
             var respuesta = await cliente.SendAsync(solicitud);
             respuesta.EnsureSuccessStatusCode();
             var resultado = await respuesta.Content.ReadAsStringAsync();
-            var carritocompra = JsonConvert.DeserializeObject<CarritoCompra>(resultado);
-            if (carritocompra == null)
+            var ventas = JsonConvert.DeserializeObject<Ventas>(resultado);
+            if (ventas == null)
             {
                 return NotFound();
             }
             else 
             {
-                CarritoCompra = carritocompra;
+                Ventas = ventas;
             }
             return Page();
         }

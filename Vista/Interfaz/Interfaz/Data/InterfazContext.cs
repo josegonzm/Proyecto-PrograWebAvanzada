@@ -23,5 +23,7 @@ namespace Interfaz.Data
         public DbSet<Abstracciones.Modelos.Usuario> Usuario { get; set; } = default!;
 
         public DbSet<Abstracciones.Modelos.CarritoCompra> CarritoCompra { get; set; } = default!;
+
+        public DbSet<Abstracciones.Modelos.Ventas> Ventas { get; set; } = default!;
     }
 }

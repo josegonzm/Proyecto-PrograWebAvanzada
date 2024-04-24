@@ -9,22 +9,28 @@ using Abstracciones.Modelos;
 using Interfaz.Data;
 using Newtonsoft.Json;
 
-namespace Interfaz.Pages.CarritosCompra
+namespace Interfaz.Pages.Venta
 {
     public class IndexModel : PageModel
     {
+        private readonly Interfaz.Data.InterfazContext _context;
 
-        public IList<CarritoCompra> CarritoCompra { get;set; } = default!;
+        public IndexModel(Interfaz.Data.InterfazContext context)
+        {
+            _context = context;
+        }
+
+        public IList<Ventas> Ventas { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            string endpoint = "https://localhost:7093/API/TodosCarritos";
+            string endpoint = "https://localhost:7093/API/Ventas";
             var cliente = new HttpClient();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, endpoint);
             var respuesta = await cliente.SendAsync(solicitud);
             respuesta.EnsureSuccessStatusCode();
             var resultado = await respuesta.Content.ReadAsStringAsync();
-            CarritoCompra = JsonConvert.DeserializeObject<List<CarritoCompra>>(resultado);
+            Ventas = JsonConvert.DeserializeObject<List<Ventas>>(resultado);
         }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Abstracciones.Modelos;
 using Interfaz.Data;
 
-namespace Interfaz.Pages.CarritosCompra
+namespace Interfaz.Pages.Venta
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace Interfaz.Pages.CarritosCompra
         }
 
         [BindProperty]
-        public CarritoCompra CarritoCompra { get; set; } = default!;
+        public Ventas Ventas { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (id == null || _context.CarritoCompra == null)
+            if (id == null || _context.Ventas == null)
             {
                 return NotFound();
             }
 
-            var carritocompra =  await _context.CarritoCompra.FirstOrDefaultAsync(m => m.Id == id);
-            if (carritocompra == null)
+            var ventas =  await _context.Ventas.FirstOrDefaultAsync(m => m.Id == id);
+            if (ventas == null)
             {
                 return NotFound();
             }
-            CarritoCompra = carritocompra;
+            Ventas = ventas;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace Interfaz.Pages.CarritosCompra
                 return Page();
             }
 
-            _context.Attach(CarritoCompra).State = EntityState.Modified;
+            _context.Attach(Ventas).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Interfaz.Pages.CarritosCompra
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarritoCompraExists(CarritoCompra.Id))
+                if (!VentasExists(Ventas.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Interfaz.Pages.CarritosCompra
             return RedirectToPage("./Index");
         }
 
-        private bool CarritoCompraExists(Guid id)
+        private bool VentasExists(Guid id)
         {
-          return (_context.CarritoCompra?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Ventas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
