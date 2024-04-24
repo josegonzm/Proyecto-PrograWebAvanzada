@@ -1,0 +1,45 @@
+﻿@page
+@model Interfaz.Pages.VistaProductos.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+           
+            <div class="form-group">
+                <label asp-for="Producto.Id_Categoria" class="control-label"></label>
+                <input asp-for="Producto.Id_Categoria" class="form-control" />
+                <span asp-validation-for="Producto.Id_Categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producto.Id_Proveedor" class="control-label"></label>
+                <input asp-for="Producto.Id_Proveedor" class="form-control" />
+                <span asp-validation-for="Producto.Id_Proveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<input id="inputUsuario" class="form-control" />
+
+<label asp-for="Producto.Id" class="control-label">ID del Producto</label>
+<input asp-for="Producto.Id" class="form-control" readonly />
+
+<input id="cantidadDeProducto" class="form-control" type="number" />
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

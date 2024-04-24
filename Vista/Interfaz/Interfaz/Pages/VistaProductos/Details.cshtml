@@ -1,0 +1,68 @@
+﻿@page
+@model Interfaz.Pages.VistaProductos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div class="container mx-auto">
+    <div class="flex">
+        <div class="w-1/3">
+            <img src="@Model.Producto.Imagen" alt="Imagen de Producto" class="w-full" />
+        </div>
+        <div class="col-md-4 w-2/3 p-4 px-2">
+            <h4 class="mb-4 text-center text-xl font-bold">Producto</h4>
+            <dl>
+                <div class="flex justify-between bg-blue-500">
+                    <dt class="font-semibold">Nombre:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Nombre)</dd>
+                </div>
+
+                <div class="flex justify-between">
+                    <dt class="font-semibold">Descripción:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Descripcion)</dd>
+                </div>
+
+                <div class="flex justify-between">
+                    <dt class="font-semibold">Marca:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Marca)</dd>
+                </div>
+
+                <div class="flex justify-between">
+                    <dt class="font-semibold">Precio:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Precio)</dd>
+                </div>
+
+                <div class="flex justify-between">
+                    <dt class="font-semibold">Estado:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Estado)</dd>
+                </div>
+
+                <div class="flex justify-between">
+                    <dt class="font-semibold">Categoría:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Id_Categoria)</dd>
+                </div>
+
+                <div class="flex justify-between">
+                    <dt class="font-semibold">Proveedor:</dt>
+                    <dd>@Html.DisplayFor(model => model.Producto.Id_Proveedor)</dd>
+                </div>
+                <
+                <input id="inputUsuario" class="form-control" />
+                
+                <label asp-for="Producto.Id" class="control-label">ID del Producto</label>
+                <input asp-for="Producto.Id" class="form-control" readonly />
+
+                <input id="cantidadDeProducto" class="form-control" type="number" />
+
+            </dl>
+        </div>
+    </div>
+    <div class="mt-8">
+        <a href="./Edit?id=@Model.Producto.Id" class="btn btn-primary">Editar</a>
+        <a href="./Index" class="btn btn-secondary">Volver al listado</a>
+    </div>
+</div>
