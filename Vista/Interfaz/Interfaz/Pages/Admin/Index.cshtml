@@ -4,22 +4,30 @@
     ViewData["Title"] = "Admin";
 }
 
-
-
-
-
-
-<div class="min-h-screen flex items-center justify-center px-4">
-    
-    <div class="bg-slate-200 flex flex-col rounded-2xl shadow-lg max-w-3xl p-8 items-center">
-        <h1 class="text-lg font-semibold mb-4">Control de administrador</h1>
-        <div class="flex flex-col space-y-4 items-center">
-            <button class="btn" onclick="window.location.href='/proveedores'">Proveedores</button>
-            <button class="btn" onclick="window.location.href='/productos'">Productos</button>
-            <button class="btn" onclick="window.location.href='/categorias'">Categorías</button>
-            <button class="btn" onclick="window.location.href='/usuarios'">Usuarios</button>
+<div class="flex min-h-screen items-center justify-center px-4">
+    <div class="max-w-3xl rounded-lg bg-white p-8 shadow-lg">
+        <h1 class="mb-8 text-center text-3xl font-semibold">Panel de Administración</h1>
+        <div class="grid-cols-1 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-lg bg-blue-200 p-4 shadow-md transition duration-300 hover:shadow-lg">
+                <h2 class="mb-2 text-xl font-semibold">Proveedores</h2>
+                <p class="text-gray-700">Administra los proveedores de la tienda disponibles.</p>
+                <button onclick="window.location.href='/proveedores'" class="mt-4 block w-full rounded bg-blue-500 px-4 py-2 text-center font-semibold text-white hover:bg-blue-600">Ver Proveedores</button>
+            </div>
+            <div class="rounded-lg bg-green-200 p-4 shadow-md transition duration-300 hover:shadow-lg">
+                <h2 class="mb-2 text-xl font-semibold">Productos</h2>
+                <p class="text-gray-700">Administra los productos disponibles de ShopTec.</p>
+                <button onclick="window.location.href='/productos'" class="mt-4 block w-full rounded bg-green-500 px-4 py-2 text-center font-semibold text-white hover:bg-green-600">Ver Productos</button>
+            </div>
+            <div class="rounded-lg bg-yellow-200 p-4 shadow-md transition duration-300 hover:shadow-lg">
+                <h2 class="mb-2 text-xl font-semibold">Categorías</h2>
+                <p class="text-gray-700">Administra las categorías de los productos.</p>
+                <button onclick="window.location.href='/categorias'" class="mt-4 block w-full rounded bg-yellow-500 px-4 py-2 text-center font-semibold text-white hover:bg-yellow-600">Ver Categorías</button>
+            </div>
+            <div class="rounded-lg bg-purple-200 p-4 shadow-md transition duration-300 hover:shadow-lg">
+                <h2 class="mb-2 text-xl font-semibold">Usuarios</h2>
+                <p class="text-gray-700">Administra los usuarios registrados de la plataforma.</p>
+                <button onclick="window.location.href='/usuarios'" class="mt-4 block w-full rounded bg-purple-500 px-4 py-2 text-center font-semibold text-white hover:bg-purple-600">Ver Usuarios</button>
+            </div>
         </div>
     </div>
 </div>
-
-
