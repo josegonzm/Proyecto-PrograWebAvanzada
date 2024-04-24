@@ -75,5 +75,19 @@ namespace API.Controllers
                 throw ex;
             }
         }
+
+        [HttpDelete("Compra/{id}")]
+        public async Task<IActionResult> DeleteProductoCarritoByUsuarioAsync( Guid id)
+        {
+            try
+            {
+                _logger.LogInformation("Realizando compra");
+                return Ok(await _carritoCompraBW.BorrarProductosCarritoPorUsuario(id));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

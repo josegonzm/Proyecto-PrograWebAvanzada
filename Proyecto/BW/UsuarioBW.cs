@@ -23,16 +23,6 @@ namespace BW
             return await _usuarioDA.AgregarUsuario(usuario);
         }
 
-        public async Task<Guid> EliminarUsuario(Guid id)
-        {
-            return await _usuarioDA.EliminarUsuario(id);
-        }
-
-        public async Task<Guid> ModificarUsuario(Guid id, Usuario usuario)
-        {
-            return await _usuarioDA.ModificarUsuario(id, usuario);
-        }
-
         public async Task<Usuario> ObtenerUsuarioPorId(Guid id)
         {
             return await _usuarioDA.ObtenerUsuarioPorId(id);

@@ -40,6 +40,14 @@ namespace DA
             var Consulta = await _sqlConnection.ExecuteAsync(sql, new { Id = id, Nombre = producto.Nombre, Descripcion = producto.Descripcion, Marca = producto.Marca, Precio = producto.Precio, Estado = producto.Estado, Imagen = producto.Imagen, Id_Categoria = producto.Id_Categoria, Id_Proveedor = producto.Id_Proveedor});
             return id;
         }
+
+        public async Task<Producto> ObtenerIdProducto(Guid id)
+        {
+            string sql = @"[ObtenerIdProducto]";
+            var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.Producto>(sql, new { Id = id });
+            return ConvertirProductoDBAModelo(Consulta.First());
+        }
+
         public async Task<Abstracciones.Modelos.Producto> ObtenerProductoPorId(Guid id)
         {
             string sql = @"[ObtenerProductoPorId]";

@@ -48,20 +48,6 @@ namespace API.Controllers
 
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(Guid id)
-        {
-            try
-            {
-                _logger.LogInformation("Eliminando usuario");
-                return Ok(await _usuarioBW.EliminarUsuario(id));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
 
         [HttpPost()]
         public async Task<IActionResult> PostAsync([FromBody] Usuario usuario)
@@ -71,21 +57,6 @@ namespace API.Controllers
                 _logger.LogInformation("Agregando persona");
                 var id = await _usuarioBW.AgregarUsuario(usuario);
                 return CreatedAtAction(nameof(GetByIdAsync), new { id = id }, usuario);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(Guid id, [FromBody] Usuario usuario)
-        {
-            try
-            {
-                _logger.LogInformation("Editando usuario");
-                return Ok(await _usuarioBW.ModificarUsuario(id, usuario));
             }
             catch (Exception ex)
             {

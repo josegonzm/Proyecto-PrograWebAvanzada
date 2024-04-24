@@ -11,6 +11,7 @@ namespace Abstracciones.BW
     {
         Task<IEnumerable<Producto>> ObtenerTodosProductos();
         Task<Producto> ObtenerProductoPorId(Guid id);
+        Task<Producto> ObtenerIdProducto(Guid id);
         Task<Guid> EliminarProducto(Guid id);
         Task<Guid> ModificarProducto(Guid id, Producto producto /*, Guid idCategoria, Guid idProveedor*/);
         Task<Guid> AgregarProducto(Producto producto /*, Guid idCategoria, Guid idProveedor*/);

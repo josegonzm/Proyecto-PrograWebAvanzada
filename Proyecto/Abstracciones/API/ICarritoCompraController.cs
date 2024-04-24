@@ -27,7 +27,7 @@ namespace Abstracciones.API
         Task<IActionResult> DeleteProductoCarritoByIdAsync([FromQuery]Guid id);
 
         //Borra un producto del carrito por id. Esto se hace de forma general
-        //[HttpDelete]
-        //Task<IActionResult> DeleteProductoCarritoByUsuarioAsync([FromQuery] Guid id);
+        [HttpDelete]
+        Task<IActionResult> DeleteProductoCarritoByUsuarioAsync(Guid id);
     }
 }

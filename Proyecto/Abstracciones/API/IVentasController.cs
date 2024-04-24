@@ -1,5 +1,4 @@
-﻿using Abstracciones.Modelos;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace Abstracciones.API
 {
-    public interface IUsuarioController
+    public interface IVentasController
     {
-
         [HttpGet]
         Task<IActionResult> GetAsync();
         [HttpGet]
         Task<IActionResult> GetByIdAsync(Guid id);
-        [HttpPost]
-        Task<IActionResult> PostAsync([FromBody] Usuario usuario);
-
     }
 }

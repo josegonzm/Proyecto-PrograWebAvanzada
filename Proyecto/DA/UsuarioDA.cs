@@ -1,4 +1,5 @@
 ﻿using Abstracciones.DA;
+using Abstracciones.Entities;
 using Abstracciones.Modelos;
 using Dapper;
 using Helpers;
@@ -21,51 +22,24 @@ namespace DA
             _sqlConnection = _repositorioDapper.ObtenerRepositorioDapper();
         }
 
-        public async Task<Guid> AgregarUsuario(Usuario usuario)
+        public async Task<Guid> AgregarUsuario(Abstracciones.Modelos.Usuario usuario)
         {
             string sql = @"[AgregarUsuario]";
-            var Consulta = await _sqlConnection.ExecuteScalarAsync(sql, 
-                new { Nombre = usuario.Nombre, 
-                    Primer_Apellido = usuario.Primer_Apellido, 
-                    Segundo_Apellido = usuario.Segundo_Apellido, 
-                    Correo = usuario.Correo, 
-                    Telefono = usuario.Telefono, 
-                    ContrasenaHash = usuario.ContrasenaHash, 
-                    Id_Rol = usuario.Id_Rol});
-
+            var Consulta = await _sqlConnection.ExecuteScalarAsync(sql, new { NombreUsuario = usuario.NombreUsuario, PasswordHash = usuario.PasswordHash, CorreoElectronico = usuario.Correo });
             return (Guid)Consulta;
         }
-        public async Task<Guid> EliminarUsuario(Guid id)
+        public async Task<IEnumerable<Abstracciones.Modelos.Usuario>> ObtenerTodosUsuarios()
         {
-            string sql = @"[EliminarUsuario]";
-            var Consulta = await _sqlConnection.ExecuteAsync(sql, new { Id = id });
-            return id;
+            ;           string sql = @"[ObtenerTodasUsuario]";
+            var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.Usuario>(sql);
+            return ConvertirListaUsuarioDBAModelo(Consulta.ToList());
         }
-        public async Task<Guid> ModificarUsuario(Guid id, Abstracciones.Modelos.Usuario usuario)
-        {
-            string sql = @"[ModificarUsuario]";
-            var Consulta = await _sqlConnection.ExecuteAsync(sql, new { Id = id, 
-                Nombre = usuario.Nombre, 
-                Primer_Apellido = usuario.Primer_Apellido, 
-                Segundo_Apellido = usuario.Segundo_Apellido, 
-                Correo = usuario.Correo, 
-                Telefono = usuario.Telefono,
-                ContrasenaHash = usuario.ContrasenaHash,
-                Id_Rol = usuario.Id_Rol });
-            return id;
-        }
+
         public async Task<Abstracciones.Modelos.Usuario> ObtenerUsuarioPorId(Guid id)
         {
             string sql = @"[ObtenerUsuarioPorId]";
             var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.Usuario>(sql, new { Id = id });
             return ConvertirUsuarioDBAModelo(Consulta.First());
-        }
-
-        public async Task<IEnumerable<Abstracciones.Modelos.Usuario>> ObtenerTodosUsuarios()
-        {
-            string sql = @"[ObtenerTodasUsuario]";
-            var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.Usuario>(sql);
-            return ConvertirListaUsuarioDBAModelo(Consulta.ToList());
         }
 
         private IEnumerable<Abstracciones.Modelos.Usuario> ConvertirListaUsuarioDBAModelo(IEnumerable<Abstracciones.Entities.Usuario> Usuario)

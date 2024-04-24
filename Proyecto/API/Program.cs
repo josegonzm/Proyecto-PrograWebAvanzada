@@ -1,5 +1,8 @@
 using Abstracciones.BW;
 using Abstracciones.DA;
+using Autorizacion.Abstracciones.BW;
+using Autorizacion.AutorizacionMiddleware;
+using Autorizacion.BW;
 using BW;
 using DA;
 using DA.Repositorio;
@@ -37,6 +40,13 @@ builder.Services.AddScoped<ICategoriaBW, CategoriaBW>();
 builder.Services.AddScoped<ICarritoCompraDA, CarritoCompraDA>();
 builder.Services.AddScoped<ICarritoCompraBW, CarritoCompraBW>();
 
+builder.Services.AddScoped<IVentasDA, VentasDA>();
+builder.Services.AddScoped<IVentasBW, VentasBW>();
+
+builder.Services.AddTransient<IAutorizacionBW, AutorizacionBW>();
+builder.Services.AddTransient<Autorizacion.Abstracciones.DA.ISeguridadDA, Autorizacion.DA.SeguridadDA>();
+builder.Services.AddTransient<Autorizacion.Abstracciones.DA.IRepositorioDapper, Autorizacion.DA.Repositorio.RepositorioDapperSeguridad>();
+
 
 var app = builder.Build();
 
@@ -48,7 +58,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.AutorizacionClaims();
 app.UseAuthorization();
 
 app.MapControllers();

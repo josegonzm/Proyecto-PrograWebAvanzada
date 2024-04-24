@@ -14,6 +14,8 @@ namespace Abstracciones.API
         Task<IActionResult> GetAsync();
         [HttpGet]
         Task<IActionResult> GetByIdAsync(Guid id);
+        [HttpGet]
+        Task<IActionResult> GetIdAsync(Guid id);
         [HttpDelete]
         Task<IActionResult> DeleteAsync([FromQuery] Guid id);
         [HttpPost]

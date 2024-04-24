@@ -13,6 +13,6 @@ namespace Abstracciones.DA
         Task<IEnumerable<CarritoCompra>> ObtenerProductosCarritoPorUsuario(Guid id);
         Task<CarritoCompra> ObtenerProductoCarritoPorId(Guid id);
         Task<Guid> BorrarProductoCarritoPorId(Guid id);
-        //Task<IEnumerable<Carrito_Compra>> BorrarProductosCarritoPorUsuario(Guid id);
+        Task<IEnumerable<CarritoCompra>> BorrarProductosCarritoPorUsuario(Guid id);
     }
 }

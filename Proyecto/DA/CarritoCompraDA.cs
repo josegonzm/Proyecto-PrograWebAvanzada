@@ -41,7 +41,7 @@ namespace DA
             return id;
         }
 
-        public async Task<IEnumerable<CarritoCompra>> ObtenerProductosCarritoPorUsuario(Guid id)
+        public async Task<IEnumerable<CarritoCompra>> ObtenerProductosCarritoPorUsuario(Guid id) //Puede que sea necesario poner un objeto tipo carrito de compra
         {
             string sql = @"[ObtenerProductosCarritoPorUsuario]";
             var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.CarritoCompra>(sql, new {IdUsuario = id});
@@ -57,12 +57,12 @@ namespace DA
 
         //Revisar codigo
 
-        //public async Task<IEnumerable<Carrito_Compra>> BorrarProductosCarritoPorUsuario(Guid id)
-        //{
-        //    string sql = @"[BorrarProductosCarritoPorUsuario]";
-        //    var Consulta = await _sqlConnection.ExecuteAsync(sql, new { Id = id });
-        //    return ConvertirListaCarrito_CompraDBAModelo(Consulta.ToList());
-        //}
+        public async Task<IEnumerable<CarritoCompra>> BorrarProductosCarritoPorUsuario(Guid id)
+        {
+            string sql = @"[BorrarProductosCarritoPorUsuario]";
+            var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.CarritoCompra>(sql, new { IdUsuario = id });
+            return ConvertirListaCarrito_CompraDBAModelo(Consulta.ToList());
+        }
 
         private IEnumerable<Abstracciones.Modelos.CarritoCompra> ConvertirListaCarrito_CompraDBAModelo(IEnumerable<Abstracciones.Entities.CarritoCompra> Carrito_Compra)
         {

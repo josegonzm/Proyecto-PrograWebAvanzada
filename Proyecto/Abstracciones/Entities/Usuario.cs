@@ -9,27 +9,20 @@ namespace Abstracciones.Entities
 {
     public class Usuario
     {
-        
+
         public Guid Id { get; set; }
 
-        
-        public string Nombre { get; set; }
+        public string NombreUsuario { get; set; }
 
-        public string Primer_Apellido { get; set; }
 
-       
-        public string Segundo_Apellido { get; set; }
-
-     
+        public string PasswordHash { get; set; }
 
         public string Correo { get; set; }
 
-        
-        public string Telefono { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime FechaModificacion { get; set; }
+        public Guid UsuarioCrea { get; set; }
+        public Guid UsuarioModifica { get; set; }
 
-        public string ContrasenaHash { get; set; }
-
-
-        public Guid Id_Rol { get; set; }
     }
 }

@@ -92,5 +92,19 @@ namespace API.Controllers
             }
 
         }
+
+        [HttpGet("ObtenerId/{id}")]
+        public async Task<IActionResult> GetIdAsync(Guid id)
+        {
+            try
+            {
+                _logger.LogInformation("Consultando personas");
+                return Ok(await _productoBW.ObtenerIdProducto(id));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

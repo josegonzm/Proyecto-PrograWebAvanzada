@@ -32,6 +32,11 @@ namespace BW
             return await _productoDA.ModificarProducto(id, producto);
         }
 
+        public async Task<Producto> ObtenerIdProducto(Guid id)
+        {
+            return await _productoDA.ObtenerIdProducto(id);
+        }
+
         public async Task<Producto> ObtenerProductoPorId(Guid id)
         {
             return await _productoDA.ObtenerProductoPorId(id);

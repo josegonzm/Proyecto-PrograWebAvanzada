@@ -11,8 +11,6 @@ namespace Abstracciones.BW
     {
         Task<IEnumerable<Usuario>> ObtenerTodosUsuarios();
         Task<Usuario> ObtenerUsuarioPorId(Guid id);
-        Task<Guid> EliminarUsuario(Guid id);
-        Task<Guid> ModificarUsuario(Guid id, Usuario usuario);
         Task<Guid> AgregarUsuario(Usuario usuario);
     }
 }
