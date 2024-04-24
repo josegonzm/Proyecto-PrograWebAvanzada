@@ -5,41 +5,31 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Producto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mx-auto p-6">
+    <h1 class="mb-4 text-3xl font-semibold">Editar Producto</h1>
+    <div class="rounded-lg bg-gray-100 p-6 shadow-lg">
+        <h2 class="mb-4 text-xl font-semibold">Detalle del Producto</h2>
         <form method="post">
-           
-            <div class="form-group">
-                <label asp-for="Producto.Id_Categoria" class="control-label"></label>
-                <input asp-for="Producto.Id_Categoria" class="form-control" />
-                <span asp-validation-for="Producto.Id_Categoria" class="text-danger"></span>
+            <div class="mb-4">
+                <label for="categoria" class="mb-2 block text-lg font-semibold">Categoría:</label>
+                <input id="categoria" asp-for="Producto.Id_Categoria" class="form-control" />
+                <span asp-validation-for="Producto.Id_Categoria" class="text-red-500"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Producto.Id_Proveedor" class="control-label"></label>
-                <input asp-for="Producto.Id_Proveedor" class="form-control" />
-                <span asp-validation-for="Producto.Id_Proveedor" class="text-danger"></span>
+            <div class="mb-4">
+                <label for="proveedor" class="mb-2 block text-lg font-semibold">Proveedor:</label>
+                <input id="proveedor" asp-for="Producto.Id_Proveedor" class="form-control" />
+                <span asp-validation-for="Producto.Id_Proveedor" class="text-red-500"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
-</div>
-<input id="inputUsuario" class="form-control" />
-
-<label asp-for="Producto.Id" class="control-label">ID del Producto</label>
-<input asp-for="Producto.Id" class="form-control" readonly />
-
-<input id="cantidadDeProducto" class="form-control" type="number" />
-
-<div>
-    <a asp-page="./Index">Back to List</a>
+    <div class="mt-8">
+        <a asp-page="./Index" class="btn btn-secondary">Volver al Listado</a>
+    </div>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -1,11 +1,13 @@
 ﻿@page
-@model Interfaz.Pages.VistaProductos.DetailsModel
+@model Interfaz.Pages.Productos.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="m-3 text-center text-3xl font-bold">
+    <dd>@Html.DisplayFor(model => model.Producto.Nombre)</dd>
+</h1>
 
 <div class="container mx-auto">
     <div class="flex">
@@ -15,7 +17,7 @@
         <div class="col-md-4 w-2/3 p-4 px-2">
             <h4 class="mb-4 text-center text-xl font-bold">Producto</h4>
             <dl>
-                <div class="flex justify-between bg-blue-500">
+                <div class="flex justify-between">
                     <dt class="font-semibold">Nombre:</dt>
                     <dd>@Html.DisplayFor(model => model.Producto.Nombre)</dd>
                 </div>
@@ -49,44 +51,13 @@
                     <dt class="font-semibold">Proveedor:</dt>
                     <dd>@Html.DisplayFor(model => model.Producto.Id_Proveedor)</dd>
                 </div>
-
-                <input id="inputUsuario" class="form-control"  />
-
-                <label asp-for="Producto.Id" class="control-label">ID del Producto</label>
-                <input id="ProductoId" asp-for="Producto.Id" class="form-control" readonly />
-
-                <input id="cantidadDeProducto" class="form-control" type="number" />
             </dl>
         </div>
     </div>
     <div class="mt-8">
-        <a asp-page="./CarritosCompra/Index" id="btnAgregarCarrito" class="btn btn-primary">Agregar al carrito</a>
-        <a asp-page="./CarritosCompra/Index">Prueba</a>
-
-        <a href="./Edit?id=@Model.Producto.Id" class="btn btn-primary">Editar</a>
-        <a href="./Index" class="btn btn-secondary">Volver al listado</a>
+        <form method="post" action="/CarritosCompra">
+            <button type="submit" class="btn btn-primary m-2 text-center">Guardar</button>
+        </form>
+        <a href="./Index" class="btn btn-secondary">Volver</a>
     </div>
 </div>
-
-@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#btnAgregarCarrito').click(function () {
-            var idUsuario = $('#inputUsuario').val();
-          
-            var cantidad = $('#cantidadDeProducto').val();
-
-            $.ajax({
-                url: '/API/CarritoCompra',
-                method: 'POST',
-                data: { idUsuario: idUsuario, cantidad: cantidad },
-                success: function (response) {
-                    alert('Producto agregado al carrito');
-                },
-                error: function () {
-                    alert('Error al agregar el producto al carrito');
-                }
-            });
-        });
-    });
-</script> *@

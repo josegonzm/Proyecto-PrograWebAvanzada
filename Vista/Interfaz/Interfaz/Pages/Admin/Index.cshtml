@@ -4,7 +4,7 @@
     ViewData["Title"] = "Admin";
 }
 
-<div class="flex min-h-screen items-center justify-center px-4">
+<div class="m-4 flex min-h-screen items-center justify-center px-4">
     <div class="max-w-3xl rounded-lg bg-white p-8 shadow-lg">
         <h1 class="mb-8 text-center text-3xl font-semibold">Panel de Administración</h1>
         <div class="grid-cols-1 grid gap-4 sm:grid-cols-2">
@@ -27,6 +27,11 @@
                 <h2 class="mb-2 text-xl font-semibold">Usuarios</h2>
                 <p class="text-gray-700">Administra los usuarios registrados de la plataforma.</p>
                 <button onclick="window.location.href='/usuarios'" class="mt-4 block w-full rounded bg-purple-500 px-4 py-2 text-center font-semibold text-white hover:bg-purple-600">Ver Usuarios</button>
+            </div>
+            <div class="rounded-lg bg-orange-200 p-4 shadow-md transition duration-300 hover:shadow-lg">
+                <h2 class="mb-2 text-xl font-semibold">Ventas</h2>
+                <p class="text-gray-700">Observa las ventas realizadas.</p>
+                <button onclick="window.location.href='/venta'" class="mt-4 block w-full rounded bg-orange-500 px-4 py-2 text-center font-semibold text-white hover:bg-orange-600">Ver Ventas</button>
             </div>
         </div>
     </div>

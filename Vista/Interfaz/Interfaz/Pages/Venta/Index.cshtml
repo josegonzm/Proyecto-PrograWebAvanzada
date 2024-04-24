@@ -5,44 +5,33 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container mx-auto">
+    <h1 class="m-2 mb-4 text-center text-3xl font-bold">Historial de Ventas</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Ventas[0].Id_Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ventas[0].Id_Producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ventas[0].Cantidad)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Ventas) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Ventas[0].Id_Usuario)</th>
+                <th>@Html.DisplayNameFor(model => model.Ventas[0].Id_Producto)</th>
+                <th>@Html.DisplayNameFor(model => model.Ventas[0].Cantidad)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Ventas)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id_Usuario)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Id_Producto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                    <td>
+                       
+                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Informacion</a>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
