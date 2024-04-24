@@ -33,6 +33,11 @@ namespace BW
             return _carritoCompraDA.BorrarProductosCarritoPorUsuario(id);
         }
 
+        public Task<IEnumerable<CarritoCompra>> ObtenerCarritosCompra()
+        {
+            return _carritoCompraDA.ObtenerCarritosCompra();
+        }
+
         public Task<CarritoCompra> ObtenerProductoCarritoPorId(Guid id)
         {
             return _carritoCompraDA.ObtenerProductoCarritoPorId(id);

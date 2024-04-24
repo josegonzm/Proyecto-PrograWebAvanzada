@@ -89,5 +89,18 @@ namespace API.Controllers
                 throw ex;
             }
         }
+
+        [HttpGet("TodosCarritos")]
+        public async Task<IActionResult> GetProductoTodosCarritoAsync()
+        {
+            try
+            {
+                _logger.LogInformation("Obteniendo carrito de compras");
+                return Ok(await _carritoCompraBW.ObtenerCarritosCompra());
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

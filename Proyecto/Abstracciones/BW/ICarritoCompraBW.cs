@@ -11,6 +11,7 @@ namespace Abstracciones.BW
     {
         Task<Guid> AgregarProductoCarrito(CarritoCompra carrito_compra);
         Task<IEnumerable<CarritoCompra>> ObtenerProductosCarritoPorUsuario(Guid id);
+        Task<IEnumerable<Modelos.CarritoCompra>> ObtenerCarritosCompra();
         Task<CarritoCompra> ObtenerProductoCarritoPorId(Guid id);
         Task<Guid> BorrarProductoCarritoPorId(Guid id);
         Task<IEnumerable<CarritoCompra>> BorrarProductosCarritoPorUsuario(Guid id);

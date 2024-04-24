@@ -22,6 +22,9 @@ namespace Abstracciones.API
         [HttpGet]
         Task<IActionResult> GetProductoCarritoByIdAsync(Guid id);
 
+        [HttpGet]
+        Task<IActionResult> GetProductoTodosCarritoAsync();
+
         //Borra todos los productos del carrito. Se hace para simular compra
         [HttpDelete]
         Task<IActionResult> DeleteProductoCarritoByIdAsync([FromQuery]Guid id);

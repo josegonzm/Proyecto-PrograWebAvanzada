@@ -55,6 +55,15 @@ namespace DA
             return ConvertirCarrito_CompraDBAModelo(Consulta.First());
         }
 
+        public async Task<IEnumerable<CarritoCompra>> ObtenerCarritosCompra()
+        {
+            string sql = @"[ObtenerTodosCarritos]";
+            var Consulta = await _sqlConnection.QueryAsync<Abstracciones.Entities.CarritoCompra>(sql);
+            return ConvertirListaCarrito_CompraDBAModelo(Consulta.ToList());
+        }
+
+        
+
         //Revisar codigo
 
         public async Task<IEnumerable<CarritoCompra>> BorrarProductosCarritoPorUsuario(Guid id)
